@@ -4,11 +4,19 @@ import type { ChatMessage as ChatMessageType } from '../../types/trip';
 
 interface ChatbotPanelProps {
   messages: ChatMessageType[];
+  buttonScale?: number;
+  buttonClickScale?: number;
+  buttonColor?: string;
 }
 
-export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ messages }) => {
+export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ 
+  messages, 
+  buttonScale = 0,
+  buttonClickScale = 1,
+  buttonColor = '#ff7b00'
+}) => {
   return (
-    <div className="relative w-md h-full flex flex-col border-r border-gray-200 bg-gray-50">
+    <div className="relative w-md h-full flex flex-col border-r border-gray-200 bg-gray-50 overflow-hidden">
       {/* Header */}
       <div className="px-6 py-4 border-b border-gray-200 bg-white">
         <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
@@ -19,7 +27,7 @@ export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ messages }) => {
       </div>
 
       {/* Message List */}
-      <div className="flex-1 overflow-y-auto px-6 py-4">
+      <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-4">
         {messages.map((msg) => (
           <ChatMessage
             key={msg.id}
@@ -27,6 +35,24 @@ export const ChatbotPanel: React.FC<ChatbotPanelProps> = ({ messages }) => {
             sender={msg.sender}
           />
         ))}
+
+        {/* Book your Trip! Button */}
+        {buttonScale > 0 && (
+          <div 
+            className="w-full"
+            style={{ 
+              transform: `scale(${buttonScale * buttonClickScale})`,
+              transformOrigin: 'center center',
+            }}
+          >
+            <button 
+              className="w-full py-2 px-6 text-white rounded-xl text-lg font-bold shadow-lg transition-colors"
+              style={{ backgroundColor: buttonColor }}
+            >
+              Book your Trip!
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Input Field (Visual Only) */}

@@ -5,7 +5,7 @@ import { ServerScene } from './scenes/ServerScene';
 
 // Overall timing orchestrated by Series
 const BROWSER_SCENE_DURATION = 355;
-const SERVER_SCENE_DURATION = 300;
+const SERVER_SCENE_DURATION = 350;
 
 export const MyComposition = () => {
   return (

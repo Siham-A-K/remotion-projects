@@ -7,7 +7,7 @@ interface ServerWindowProps {
 export const ServerWindow: React.FC<ServerWindowProps> = ({ children }) => {
   return (
     <div
-      className="mx-auto my-10 rounded-lg shadow-2xl overflow-hidden bg-gray-900 border border-gray-700"
+      className="mx-auto my-10 rounded-lg shadow-2xl bg-gray-900 border border-gray-700"
       style={{ width: '1100px', height: '620px' }}
     >
       {/* Fake Header for Buttons only */}

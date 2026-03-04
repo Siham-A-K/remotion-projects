@@ -48,9 +48,9 @@ export const TUI: React.FC = () => {
           <div className="absolute top-1 left-2 text-[10px] text-blue-300 opacity-50 uppercase font-bold tracking-widest">MONITOR_01</div>
           
           {/* Alert Text (Behind Scanning Line due to DOM order) */}
-          {frame >= 60 && (
+          {frame >= 30 && (
             <div 
-              className={`font-bold z-0 ${frame < 120 ? 'text-4xl text-white uppercase tracking-widest' : 'text-2xl text-blue-300 tracking-wide'}`}
+              className={`font-bold z-0 ${frame < 120 ? 'text-4xl text-white uppercase tracking-widest' : 'text-3xl text-orange-500 tracking-wide'}`}
               style={{
                 opacity: frame < 90 ? (Math.floor(frame / 10) % 2 === 0 ? 1 : 0) : 1
               }}
